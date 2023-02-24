@@ -1,0 +1,1 @@
+const baseUrl = "https://raw.githubusercontent.com/AKABishamonten/login/main/pokeapi.json";

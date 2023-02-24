@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "163919603463",
+    "project_id": "delivery-ec26e",
+    "storage_bucket": "delivery-ec26e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163919603463:android:d98daaaf62d97a831887a2",
+        "android_client_info": {
+          "package_name": "com.deli.delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "163919603463-8j2cbnvv49inisislv37hek76puucpvn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.deli.delivery",
+            "certificate_hash": "0e5ad83894a69b798b62f4c83968347e12602662"
+          }
+        },
+        {
+          "client_id": "163919603463-i2iphq7mpu4ob306d0m5jpd8q3r6uq4l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0PWeZB2MwOaaAovNkY-prPQZAoHYiGNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "163919603463-i2iphq7mpu4ob306d0m5jpd8q3r6uq4l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
