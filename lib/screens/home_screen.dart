@@ -1,4 +1,4 @@
-import 'package:delivery/models/categories_modle.dart';
+import 'package:delivery/models/catgory_api.dart';
 import 'package:delivery/models/product_model.dart';
 import 'package:delivery/providers/product_provider.dart';
 import 'package:delivery/widgets/category_button/category.dart';
@@ -7,6 +7,7 @@ import 'package:delivery/widgets/image_silde.dart';
 import 'package:delivery/widgets/location_bar.dart';
 import 'package:delivery/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,12 +20,16 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   List<ProductModel> singleProductList = [];
+  List<ProductCategoriesModle> cpuCategoriesList = [];
+  late LatLng _currentLocationLatLag;
 
   @override
   Widget build(BuildContext context) {
     ProductProvider productProvider = Provider.of<ProductProvider>(context);
     productProvider.fetchCpuproductData();
-    singleProductList = productProvider.throwFoodModleList;
+    singleProductList = productProvider.throwCpuModleList;
+    productProvider.getCpuCategoriesList();
+    cpuCategoriesList = productProvider.throwCpuCategoriesList;
     return SingleChildScrollView(
       child: Column(
         children: [

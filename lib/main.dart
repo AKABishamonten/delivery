@@ -1,4 +1,5 @@
 import 'package:delivery/providers/auth_provider.dart';
+import 'package:delivery/providers/map_provider.dart';
 import 'package:delivery/providers/navi_bar_provider.dart';
 import 'package:delivery/providers/product_provider.dart';
 import 'package:delivery/routes/navigate.dart';
@@ -18,6 +19,7 @@ void main() async {
       ChangeNotifierProvider<NavibarProvider>(create: (_) => NavibarProvider(),),
       ChangeNotifierProvider<AuthWithProvider>(create: (_) => AuthWithProvider(),),
       ChangeNotifierProvider<ProductProvider>(create: (_) => ProductProvider(),),
+      ChangeNotifierProvider<MapViewModel>(create: (_) => MapViewModel(),),
     ],child: MyApp()));
 }
 
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MainScreen(),
+      initialRoute: '/MainScreen',
       routes: Navigate.routes,
     );
   }

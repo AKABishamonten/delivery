@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:delivery/models/categories_modle.dart';
+import 'package:delivery/models/catgory_api.dart';
 import 'package:delivery/models/product_model.dart';
 import 'package:flutter/material.dart';
 
@@ -214,8 +215,33 @@ List<CategoriesModle> caseList = [];
    notifyListeners();
   }
 
-  get throwFoodModleList {
+  get throwCpuModleList {
     return productList;
   }
   //////////////End HomeScreen Product//////////////
+  List<ProductCategoriesModle> cpuCategoriesList = [];
+  late ProductCategoriesModle cpuCategoriesModle;
+  Future<void> getCpuCategoriesList() async {
+    List<ProductCategoriesModle> newCpuCategoriesList = [];
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection('foodcategorieslist')
+        .doc('0rriSlzfF27iaWTZnN15')
+        .collection('CPU')
+        .get();
+    querySnapshot.docs.forEach((element) {
+      cpuCategoriesModle = ProductCategoriesModle(
+        productName: element.get("productName"),
+        productDetail: element.get("productDetail"),
+        productType: element.get("productType"),
+        productPrice: element.get("productPrice"),
+        productImage: element.get("productImage"),
+      );
+      newCpuCategoriesList.add(cpuCategoriesModle);
+      cpuCategoriesList = newCpuCategoriesList;
+    });
+  }
+
+  get throwCpuCategoriesList {
+    return cpuCategoriesList;
+  }
 }

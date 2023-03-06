@@ -1,6 +1,7 @@
 import 'package:delivery/models/categories_modle.dart';
 import 'package:delivery/models/catgory_api.dart';
 import 'package:delivery/providers/product_provider.dart';
+import 'package:delivery/screens/categories_screen.dart';
 import 'package:delivery/widgets/category_button/categories_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -23,14 +24,23 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   List<CategoriesModle> ssdList = [];
   List<CategoriesModle> powersupplyList = [];
   List<CategoriesModle> caseList = [];
+
+  List<ProductCategoriesModle> cpuCategoriesList = [];
   Widget cpu() {
     return Row(
       children: cpuList
           .map((e) => CategoriesContainer(
               image: e.image,
               name: e.name,
-              onTap: () {
-              }))
+              onTap: () { /////////////////////
+                /*Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => Categories(
+                      list: cpuCategoriesList, productDetail: '', productImage: '', productName: '', productPrice: '', productType: '',
+                    ),
+                  ),
+                );*/
+              })) ////////////////////
           .toList(),
     );
   }
@@ -85,6 +95,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
               image: e.image,
               name: e.name,
               onTap: () {
+
               }))
           .toList(),
     );
@@ -119,6 +130,8 @@ class _CategoryWidgetState extends State<CategoryWidget> {
     powersupplyList = productProvider.throwPowersupplyList;
     productProvider.getCaseCategory();
     caseList = productProvider.throwCaseList;
+    productProvider.getCpuCategoriesList();
+    cpuCategoriesList = productProvider.throwCpuCategoriesList;
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
