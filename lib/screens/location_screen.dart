@@ -5,11 +5,12 @@ import 'package:provider/provider.dart';
 
 class LocationScreen extends StatelessWidget {
   LocationScreen({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
     MapViewModel provider = Provider.of<MapViewModel>(context, listen: false);
-
+    provider.getCurrentPosition();
     return Scaffold(
       appBar: AppBar(title: const Text("location")),
       body: Padding(
@@ -50,10 +51,9 @@ class LocationScreen extends StatelessWidget {
                       trailing: IconButton(
                         icon: Icon(Icons.edit),
                         onPressed: () async {
-                          /*provider.selectedLatLng =
+                          provider.selectedLatLng =
                               await provider.latLanlist[index];
                           provider.selectedindex = index;
-                          Navigator.pushNamed(context, "/EditMap");*/
                         },
                       ),
                     ),

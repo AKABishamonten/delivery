@@ -19,17 +19,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  List<ProductModel> singleProductList = [];
-  List<ProductCategoriesModle> cpuCategoriesList = [];
-  late LatLng _currentLocationLatLag;
 
   @override
   Widget build(BuildContext context) {
-    ProductProvider productProvider = Provider.of<ProductProvider>(context);
-    productProvider.fetchCpuproductData();
-    singleProductList = productProvider.throwCpuModleList;
-    productProvider.getCpuCategoriesList();
-    cpuCategoriesList = productProvider.throwCpuCategoriesList;
     return SingleChildScrollView(
       child: Column(
         children: [
