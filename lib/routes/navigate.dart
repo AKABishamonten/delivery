@@ -1,3 +1,4 @@
+import 'package:delivery/screens/basket_screen.dart';
 import 'package:delivery/screens/categories_screen.dart';
 import 'package:delivery/screens/detail_screen.dart';
 import 'package:delivery/screens/home_screen.dart';
@@ -18,8 +19,9 @@ class Navigate {
     '/SettingProfile': (BuildContext context) => const SettingProfile(),
     '/HomeScreen': (BuildContext context) => const HomeScreen(),
     '/LocationScreen': (BuildContext context) => LocationScreen(),
-    '/DetailScreen': (BuildContext context) => const DetailScreen(productDetail: '', productImage: '', productName: '', productPrice: '', productType: '',),
-    '/Categories': (BuildContext context) => Categories(list: [], productDetail: '', productImage: '', productName: '', productPrice: '', productType: '',)
+    '/BasketScreen': (BuildContext context) => BasketScreen(),
+    '/DetailScreen': (BuildContext context) => DetailScreen(productDetail: '', productImage: '', productName: '', productPrice: '' as int, productType: '',),
+    '/Categories': (BuildContext context) => Categories(list: [],)
 
   };
 }

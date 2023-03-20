@@ -9,7 +9,7 @@ class LocationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MapViewModel provider = Provider.of<MapViewModel>(context, listen: false);
+    MapViewModel provider = Provider.of<MapViewModel>(context, listen: false); //statefull //
     provider.getCurrentPosition();
     return Scaffold(
       appBar: AppBar(title: const Text("location")),

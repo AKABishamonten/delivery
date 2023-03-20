@@ -8,22 +8,22 @@ class BottomContainer extends StatelessWidget {
   String productName;
   String productDetail;
   String productType;
-  String productPrice;
+  int productPrice;
   String productImage;
-  final Function onTap;
+  final onTap;
   BottomContainer({
     required this.productName,
     required this.productDetail,
     required this.productType,
     required this.productPrice,
     required this.productImage,
-    required this. onTap,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap(),
+      onTap: onTap,
       child: Column(
         children: [
           Card(
@@ -37,7 +37,6 @@ class BottomContainer extends StatelessWidget {
                   child: Stack(
                     children: [
                       Container(
-                        height: 150,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           boxShadow: [BoxShadow(blurStyle: BlurStyle.outer  
@@ -45,7 +44,7 @@ class BottomContainer extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15),
                           color: Colors.grey[300],
                         ),
-                        child: Image.network(productImage)
+                        child: Image.network(productImage, height: 150,)
                       ),
                       Positioned(
                         right: 8,
@@ -66,12 +65,12 @@ class BottomContainer extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(productName, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                      Text(productType, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                      Text(productName, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
+                      Text(productType, style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),),
                     ],
                   ),
                 ),
-                SizedBox(height: 70,),
+                SizedBox(height: 50,),
                   Container(
                     margin: EdgeInsets.all(8),
                     decoration: BoxDecoration(
@@ -79,7 +78,7 @@ class BottomContainer extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                        Text(productPrice, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                        Text('$productPrice', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
                         const Text('฿', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
                       ],
                     ),

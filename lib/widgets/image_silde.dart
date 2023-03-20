@@ -17,20 +17,28 @@ class _ImageSildeState extends State<ImageSilde> {
         Container(
           margin: EdgeInsets.symmetric(vertical: 16.0),
           height: 200,
-          child: PageView.builder(
+          child: CarouselSlider.builder(
             itemCount: appBannerList.length,
-            itemBuilder: (context, index){
+            itemBuilder: (BuildContext context, int index, int realIndex) {
               return Container(
-                margin: EdgeInsets.symmetric(horizontal: 16),
+                margin: EdgeInsets.symmetric(horizontal: 2),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
                     image: NetworkImage(appBannerList[index].thumbnailUrl),
-                    fit: BoxFit.cover
-                  )
+                    fit: BoxFit.cover,
+                  ),
                 ),
               );
-            }),
+            },
+            options: CarouselOptions(
+              autoPlay: true,
+              aspectRatio: 2.0,
+              enlargeCenterPage: true,
+              enableInfiniteScroll: true,
+              viewportFraction: 1.0,
+            ),
+          ),
         )
       ],
     );

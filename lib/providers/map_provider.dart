@@ -8,18 +8,14 @@ class MapViewModel extends ChangeNotifier {
   int time = 0;
 
   String _currentLocationName = "...";
-  List _textlist = ["Current location", "บ้าน", "ออฟฟิศ", "SDBStore"];
+  List _textlist = ["Current location",];
   List<IconData> _icondata = [
     Icons.home,
-    Icons.home,
-    Icons.abc,
-    Icons.back_hand
+
   ];
   List<LatLng> latLanlist = [
     LatLng(13.911381, 100.362016),
-    LatLng(13.7650836, 100.5379664),
-    LatLng(13.7650836, 100.5379664),
-    LatLng(13.7650836, 100.5379664)
+
   ];
   late int _selectedindex;
 

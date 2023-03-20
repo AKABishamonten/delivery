@@ -6,9 +6,9 @@ class AppBanner {
 }
 
 List<AppBanner> appBannerList = [
-  AppBanner(1, 'https://images.alphacoders.com/103/thumb-1920-1039414.png'),
-  AppBanner(2, 'https://wallpapercave.com/wp/wp11250860.jpg'),
-  AppBanner(3, 'https://i.pinimg.com/originals/8b/0c/1b/8b0c1b13d8e9384c568e36ece16e77ed.jpg'),
+  AppBanner(1, 'https://raw.githubusercontent.com/AKABishamonten/delivery/main/images/slide2.jpg'),
+  AppBanner(2, 'https://raw.githubusercontent.com/AKABishamonten/delivery/main/images/slide3.jpg'),
+  AppBanner(3, 'https://raw.githubusercontent.com/AKABishamonten/delivery/main/images/slide4.jpg'),
 ];
 
 

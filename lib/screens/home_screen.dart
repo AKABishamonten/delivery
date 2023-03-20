@@ -1,7 +1,7 @@
 import 'package:delivery/models/catgory_api.dart';
 import 'package:delivery/models/product_model.dart';
 import 'package:delivery/providers/product_provider.dart';
-import 'package:delivery/widgets/category_button/category.dart';
+import 'package:delivery/widgets/category_button/button_category_widget.dart';
 import 'package:delivery/widgets/grid_product.dart';
 import 'package:delivery/widgets/image_silde.dart';
 import 'package:delivery/widgets/location_bar.dart';
