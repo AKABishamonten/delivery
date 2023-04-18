@@ -1,13 +1,19 @@
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-
-class AuthWithProvider extends ChangeNotifier{
+class AuthWithProvider extends ChangeNotifier {
+  bool otpVisibility = false;
+  String verificationID = "";
+  FirebaseAuth auth = FirebaseAuth.instance;
   String logintype = "";
   var userdata = null;
-  final googleSignIn = GoogleSignIn();
-  Future googleLogin(context) async {
+  final googleSignIn = GoogleSignIn(
+  );
+//GoogleSignIn
+Future googleLogin(context) async {
   final googleSignIn = GoogleSignIn();
   GoogleSignInAccount? userdata;
   final googleUser = await googleSignIn.signIn();
@@ -20,10 +26,13 @@ class AuthWithProvider extends ChangeNotifier{
       accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
 
   await FirebaseAuth.instance.signInWithCredential(credential).then((value) {
+  logintype = "google";
   notifyListeners();
   NavigateToProfile(context);
   });
 }
+
+
 
   Future signOut(context) async {
     switch (logintype) {
@@ -31,19 +40,14 @@ class AuthWithProvider extends ChangeNotifier{
         await FirebaseAuth.instance.signOut();
         await googleSignIn.disconnect();
         break;
-      case "email":
-        await FirebaseAuth.instance.signOut();
-        break;
-      case "anonymous":
-        await FirebaseAuth.instance.signOut();
-        break;
       default:
         await FirebaseAuth.instance.signOut();
     }
     notifyListeners();
-    Navigator.pushNamed(context, "/MainScreen");
+    Navigator.pushNamed(context, "/LoginScreen");
   }
+
   void NavigateToProfile(context) {
-    Navigator.pushNamed(context, "/SettingProfile");
+    Navigator.pushNamed(context, "/MainScreen");
   }
 }

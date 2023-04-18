@@ -441,11 +441,13 @@ List<BottomCategoriesModle> caseList = [];
     return total;
   }
  late int deleteIndex;
+
+ 
  void getDeleteIndex(int index){
      deleteIndex=index;
  }
  void delete(int index){
-   cartList.removeAt(deleteIndex);
+   cartList.removeAt(index);
    notifyListeners();
  }
 }
