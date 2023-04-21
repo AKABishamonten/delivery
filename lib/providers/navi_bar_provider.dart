@@ -2,8 +2,6 @@ import 'package:delivery/screens/auth/login_screen.dart';
 import 'package:delivery/screens/auth/profile_screen.dart';
 import 'package:delivery/screens/basket_screen.dart';
 import 'package:delivery/screens/home_screen.dart';
-import 'package:delivery/screens/notification_screen.dart';
-import 'package:delivery/screens/order_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -11,7 +9,6 @@ class NavibarProvider extends ChangeNotifier{
   List<NavibarDTO> items = [
     NavibarDTO(label: 'Home', widget: HomeScreen(),iconData: Icons.home),
     NavibarDTO(label: 'Basket', widget: BasketScreen(),iconData: Icons.shopping_basket),
-    NavibarDTO(label: 'Order', widget: OrderScreen(),iconData: Icons.list_alt),
     NavibarDTO(label: 'Profile', widget: ProfileScreen(),iconData: Icons.person_outline),
   ];
   int _selectedIndex = 0;

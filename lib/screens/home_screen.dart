@@ -1,13 +1,7 @@
-import 'package:delivery/models/catgory_api.dart';
-import 'package:delivery/models/product_model.dart';
-import 'package:delivery/providers/product_provider.dart';
 import 'package:delivery/widgets/category_button/button_category_widget.dart';
 import 'package:delivery/widgets/grid_product.dart';
 import 'package:delivery/widgets/image_silde.dart';
-import 'package:delivery/widgets/location_bar.dart';
-import 'package:delivery/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -25,15 +19,19 @@ class _HomeScreenState extends State<HomeScreen> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          LocationBar(),
-          ScarchBarWidget(),
+          SizedBox(height: 30,),
           ImageSilde(),
+          Container(
+            alignment: Alignment.topLeft,
+            margin: EdgeInsets.only(left: 15, bottom: 15),
+            child: Text('Category', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.orangeAccent, fontSize: 20),),
+          ),
           CategoryWidget(),
           SizedBox(height: 10,),
           Container(
             alignment: Alignment.topLeft,
             margin: EdgeInsets.only(left: 15,),
-            child: Text('Restaurant near me', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey, fontSize: 20),),
+            child: Text('Recommended for you', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.orangeAccent, fontSize: 20),),
           ),
           GridPokemon()
         ],

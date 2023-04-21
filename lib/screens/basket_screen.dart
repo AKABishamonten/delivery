@@ -13,7 +13,6 @@ class BasketScreen extends StatefulWidget {
 }
 
 class _BasketScreenState extends State<BasketScreen> {
-
   @override
   Widget cartItem({
     required String productImage,
@@ -29,23 +28,31 @@ class _BasketScreenState extends State<BasketScreen> {
           margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10)
+              color: Colors.white, borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 2),
+                )
+              ]
           ),
           child: Row(
             children: [
               Radio(
                 value: "",
-                groupValue: "", 
+                groupValue: "",
                 activeColor: Colors.orangeAccent,
                 onChanged: (index) {},
               ),
               Container(
-                height: 70,
-                width: 70,
-                margin: EdgeInsets.only(right: 15),
-                child: Image(image: NetworkImage(productImage),)
-              ),
+                  height: 70,
+                  width: 70,
+                  margin: EdgeInsets.only(right: 15),
+                  child: Image(
+                    image: NetworkImage(productImage),
+                  )),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10),
                 child: Column(
@@ -55,12 +62,20 @@ class _BasketScreenState extends State<BasketScreen> {
                     Container(
                       width: 185,
                       child: Text(
-                        productName, 
+                        productName,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.orangeAccent),),
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.orangeAccent),
+                      ),
                     ),
-                    Text('\฿$productPrice', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                    Text(
+                      '\฿$productPrice',
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
               ),
@@ -68,16 +83,22 @@ class _BasketScreenState extends State<BasketScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 5),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      icon: Icon(FontAwesomeIcons.trash, color: Colors.redAccent,),
-                      onPressed: onTap,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        icon: Icon(
+                          FontAwesomeIcons.trash,
+                          color: Colors.redAccent,
+                        ),
+                        onPressed: onTap,
                       ),
-                    Text('x $quantity', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),)
-                  ]
-                ),
+                      Text(
+                        'x $quantity',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold),
+                      )
+                    ]),
               )
             ],
           ),
@@ -85,41 +106,34 @@ class _BasketScreenState extends State<BasketScreen> {
       ],
     );
   }
+
   @override
   Widget build(BuildContext context) {
     ProductProvider provider = Provider.of<ProductProvider>(context);
     int total = provider.totalprice();
     return Scaffold(
-      bottomNavigationBar: Container(
-        margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        height: 65,
-        decoration: BoxDecoration(
-            color: Colors.orangeAccent, borderRadius: BorderRadius.circular(10)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "\฿ $total",
-              style: TextStyle(color: Colors.black, fontSize: 30,fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "Check Out",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold),
-            )
-          ],
+      bottomNavigationBar: ListTile(
+        title: Text("Total Aount", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+        subtitle: Text("\฿ $total", style: TextStyle(fontSize: 20,color: Colors.green[900]),),
+        trailing: Container(
+          height: 50,
+          width: 160,
+          child: MaterialButton(
+            child: Text("Submit", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),) ,
+            color: Colors.orangeAccent,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            onPressed: (){
+              Navigator.pushNamed(context, "/Location");
+            },
+          ),
         ),
       ),
-      
       body: ListView.builder(
         itemCount: provider.cartList.length,
         itemBuilder: (ctx, index) {
           provider.getDeleteIndex(index);
           return cartItem(
-            onTap: (){
+            onTap: () {
               provider.delete(index);
             },
             productImage: provider.cartList[index].productImage,

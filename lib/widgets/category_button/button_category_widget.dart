@@ -177,6 +177,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
     productProvider.getCaseCategory();
     caseList = productProvider.throwCaseList;
     /////// End Button Categories /////
+    
     /////// Categories list ///////////
     productProvider.getCpuCategoriesList();
     cpuCategoriesList = productProvider.throwCpuCategoriesList;

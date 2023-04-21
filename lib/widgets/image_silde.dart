@@ -37,6 +37,7 @@ class _ImageSildeState extends State<ImageSilde> {
               enlargeCenterPage: true,
               enableInfiniteScroll: true,
               viewportFraction: 1.0,
+              
             ),
           ),
         )

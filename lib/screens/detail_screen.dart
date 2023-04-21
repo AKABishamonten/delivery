@@ -187,38 +187,23 @@ class _DetailScreenState extends State<DetailScreen> {
                           
                         },
                         child: Container(
+                          width: 350,
                           padding: EdgeInsets.symmetric(
                               vertical: 18, horizontal: 70),
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 247, 249, 252),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Icon(
-                            FontAwesomeIcons.cartPlus,
-                            size: 22,
                             color: Colors.orangeAccent,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Center(
+                            child: Icon(
+                              FontAwesomeIcons.cartPlus,
+                              size: 22,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 18, horizontal: 70),
-                          decoration: BoxDecoration(
-                            color: Colors.orangeAccent,
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Text(
-                            "Buy Now",
-                            style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600,
-                                letterSpacing: 1,
-                                color: Colors.white),
-                          ),
-                        ),
-                      )
+
                     ],
                   )
                 ],

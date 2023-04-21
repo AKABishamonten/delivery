@@ -42,7 +42,7 @@ class BottomContainer extends StatelessWidget {
                           boxShadow: [BoxShadow(blurStyle: BlurStyle.outer  
                           )],
                           borderRadius: BorderRadius.circular(15),
-                          color: Colors.grey[300],
+                          color: Colors.white,
                         ),
                         child: Image.network(productImage, height: 150,)
                       ),
@@ -61,7 +61,7 @@ class BottomContainer extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 10),
+                  padding: EdgeInsets.only(left: 10, top: 5),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

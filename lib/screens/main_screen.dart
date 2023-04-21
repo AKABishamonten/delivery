@@ -24,13 +24,13 @@ class _MainScreenState extends State<MainScreen> {
       body: np.items[np.selectedIndex].widget,
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,
+        backgroundColor: Colors.orangeAccent,
         currentIndex: np.selectedIndex,
         onTap: (i){
           np.selectedIndex = i;
         },
           items: np.items
               .map((e) => BottomNavigationBarItem(
-                backgroundColor: Colors.orangeAccent,
                   icon: Icon(e.iconData), label: e.label))
               .toList()),
     );

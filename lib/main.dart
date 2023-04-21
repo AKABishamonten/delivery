@@ -1,5 +1,5 @@
 import 'package:delivery/providers/auth_provider.dart';
-import 'package:delivery/providers/map_provider.dart';
+import 'package:delivery/providers/checkout_provider.dart';
 import 'package:delivery/providers/navi_bar_provider.dart';
 import 'package:delivery/providers/product_provider.dart';
 import 'package:delivery/routes/navigate.dart';
@@ -15,11 +15,12 @@ void main() async {
   await Firebase.initializeApp();
 
   runApp(
+    
     MultiProvider(providers: [
       ChangeNotifierProvider<NavibarProvider>(create: (_) => NavibarProvider(),),
       ChangeNotifierProvider<AuthWithProvider>(create: (_) => AuthWithProvider(),),
       ChangeNotifierProvider<ProductProvider>(create: (_) => ProductProvider(),),
-      ChangeNotifierProvider<MapViewModel>(create: (_) => MapViewModel(),),
+      ChangeNotifierProvider<CheckoutProvider>(create: (_) => CheckoutProvider(),),
     ],child: MyApp()));
 }
 

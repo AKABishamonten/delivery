@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
-
+  const LoginScreen({Key? key,}) : super(key: key);
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -21,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
               width: double.infinity,
               height: 200,
               decoration: const BoxDecoration(
-                color: Colors.grey,
+                color: Colors.orangeAccent,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10),
                   topRight: Radius.circular(10),

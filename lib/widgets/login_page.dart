@@ -17,126 +17,68 @@ class _TextFormGlobalState extends State<TextFormGlobal> {
     return Column(
       children: [
         Container(
-              padding: EdgeInsets.only(left: 20),
-              alignment: Alignment.topLeft,
-              child: Text('Sign In', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-            ),SizedBox(height: 10,),
-            Container(
-              padding: EdgeInsets.only(left: 20),
-              alignment: Alignment.topLeft,
-              child: Text('Email or Phone Number', style: TextStyle(fontSize: 16,),),
-            ),
-            SizedBox(height: 10,),
-        Container(
-          margin: EdgeInsets.only(left: 10, right: 10),
-          height: 50,
-          padding: EdgeInsets.only(top: 3, left: 15),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(6),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  blurRadius: 7,
-                )
-              ]),
-          child: TextField(
-            controller: emailController,
-            decoration: InputDecoration(border: InputBorder.none,) ,
-          ),
-        ),
-        SizedBox(height: 10,),
-        Container(
-          padding: EdgeInsets.only(left: 20),
+          padding: EdgeInsets.only(left: 20, top: 10),
           alignment: Alignment.topLeft,
-          child: Text('Password', style: TextStyle(fontSize: 16,),),
-        ),
-        SizedBox(height: 10,),
-        Container(
-          margin: EdgeInsets.only(left: 10, right: 10),
-          height: 50,
-          padding: EdgeInsets.only(top: 3, left: 15),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(6),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  blurRadius: 7,
-                )
-              ]),
-          child: TextField(
-            controller: passwordController,
-            decoration: InputDecoration(border: InputBorder.none,) ,
+          child: Center(
+            child: Text(
+              'Sign In',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
           ),
-        ),
-        SizedBox(height: 15,),
-        Container(
-          padding: EdgeInsets.only(right: 20),
-          alignment: Alignment.topRight,
-          child: TextButton(
-            onPressed: (){
-
-            },child: const Text('Forgot Password',style: TextStyle(fontSize: 16, color: Colors.orangeAccent),),)
         ),
         SizedBox(
           height: 10,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.only(right: 50, left: 50, top: 10),
           child: SizedBox(
             width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {},
+            child: ElevatedButton.icon(
+              icon: Image.network(
+                "https://img.icons8.com/office/256/google-logo.png",
+                height: 25,
+              ),
+              label: Text(
+                "Login with Google",
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                context.read<AuthWithProvider>().googleLogin(context);
+              },
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orangeAccent),
-              child: Text('Sign In'),
+                backgroundColor: Colors.white,
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(right: 50, left: 50, top: 10),
+          child: SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              icon: Image.network(
+                "https://www.freepnglogos.com/uploads/logo-facebook-png/logo-facebook-best-facebook-logo-icons-gif-transparent-png-images-9.png",
+                height: 35,
+                color: Colors.white,
+              ),
+              label: Text(
+                "Login with Facebook",
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: () {
+                context.read<AuthWithProvider>().facebookLogin(context);
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueAccent
+              ),
             ),
           ),
         ),
         SizedBox(height: 20,),
         Container(
-          padding: EdgeInsets.only(right: 20),
-          alignment: Alignment.topRight,
-          child: TextButton(
-            onPressed: (){
-              Navigator.pushNamed(context, "/Register");
-            },child: const Text('Register',style: TextStyle(fontSize: 16, color: Colors.orangeAccent),),)
-        ),
-        SizedBox(height: 20,),
-        Row(
-          children: [
-            Expanded(child: Container(
-              margin: EdgeInsets.only(left: 10, right: 15),
-              child: Divider(color: Colors.grey
-              )),
-            ),
-            Text("Or"),
-            Expanded(child: Container(
-              margin: EdgeInsets.only(left: 15, right: 10),
-              child: Divider(color: Colors.grey
-              )),
-            ),
-          ],
-        ),
-        SizedBox(height: 10,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              padding: EdgeInsets.all(2),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                border: Border.all(
-                  width: 2,
-                  color: Colors.grey
-                ),
-              ),
-              child: IconButton(onPressed: (){
-                context.read<AuthWithProvider>().googleLogin(context);
-              }, icon: Image.network('https://img.icons8.com/office/256/google-logo.png'))
-            )
-          ],
+          height: 100, 
+          color: Colors.red,
+          child: Image.network(''),
         )
       ],
     );
